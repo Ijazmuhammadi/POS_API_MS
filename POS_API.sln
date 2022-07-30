@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POS_API", "POS_API\POS_API.csproj", "{D1DFC38B-FC99-41A1-BF28-7A6BA0B46DE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLModel_WebApi2", "MLModel_WebApi2\MLModel_WebApi2.csproj", "{D28A7A26-461C-4AC0-A032-6FC6081AC8C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1DFC38B-FC99-41A1-BF28-7A6BA0B46DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DFC38B-FC99-41A1-BF28-7A6BA0B46DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DFC38B-FC99-41A1-BF28-7A6BA0B46DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DFC38B-FC99-41A1-BF28-7A6BA0B46DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28A7A26-461C-4AC0-A032-6FC6081AC8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28A7A26-461C-4AC0-A032-6FC6081AC8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28A7A26-461C-4AC0-A032-6FC6081AC8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28A7A26-461C-4AC0-A032-6FC6081AC8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B2BFCAC-EE9D-4208-8CBB-A112F6872CD3}
+	EndGlobalSection
+EndGlobal
