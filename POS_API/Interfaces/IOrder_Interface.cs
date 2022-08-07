@@ -9,6 +9,7 @@ namespace POS_API.Interfaces
     public interface IOrder_Interface
     {
         Task<IEnumerable<Order>> GetOrders();
+        Task<IEnumerable<Order>> getOrderSearch(string orderName);
         Task<IEnumerable<Order>> GetOrdersRevenue();
         Task<IEnumerable<Customer>> GetCustomers();
         Task<IEnumerable<Product>> GetProducts();
@@ -16,6 +17,7 @@ namespace POS_API.Interfaces
         Task <Product> GetOrderUnitPrice(int productID);
         // Task<Order> GetOrderByEmail(string email);
         Task<Order> AddOrder(Order Order);
+        Task<Product> UpdateProduct(Order order);
         Task<Order> UpdateOrder(Order Order);
         Task DeleteOrder(int OrderId);
     

@@ -32,6 +32,22 @@ namespace POS_API.Controllers
                     "Error retrieving data from the database");
             }
         }
+
+        //Order invoice
+        [Route("{orderName?}")]
+        [HttpGet]
+        public async Task<ActionResult> getOrderSearch(string orderName)
+        {
+            try
+            {
+                return Ok(await order.getOrderSearch(orderName));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database");
+            }
+        }
         [HttpGet]
         public async Task<ActionResult> GetOrderRevenue()
         {
@@ -116,14 +132,6 @@ namespace POS_API.Controllers
             {
                 if (Order == null)
                     return BadRequest();
-
-                //var emp = await order.GetOrderByEmail(Order.Email);
-
-                //if (emp != null)
-                //{
-                //    ModelState.AddModelError("Email", "Order email already in use");
-                //    return BadRequest(ModelState);
-                //}
 
                 var createdOrder = await order.AddOrder(Order);
 

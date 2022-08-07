@@ -22,6 +22,7 @@ namespace POS_API.Repository
 
             var result = await appDb.orders.AddAsync(order);
             await appDb.SaveChangesAsync();
+           await UpdateProduct(order);
             return result.Entity;
         }
      
@@ -52,6 +53,29 @@ namespace POS_API.Repository
             return await appDb.orders
                .FirstOrDefaultAsync(e => e.OrderId == OrderId);
         }
+        public async Task<IEnumerable<Order>> getOrderSearch(string orderName)
+        {
+
+            var orderlist = (from x in appDb.orders
+                             join a in appDb.products
+                             on x.ProductID equals a.ProductID
+                             join c in appDb.customers
+                             on x.CustomerId equals c.CustomerId
+                             where x.Order_Name ==orderName
+                             select new Order
+                             {
+                                 OrderId = x.OrderId,
+                                 Order_Name = x.Order_Name,
+                                 Quantity = x.Quantity,
+                                 Unit_Price = x.Unit_Price,
+                                 Sub_Total = x.Sub_Total,
+                                 Order_Date = x.Order_Date,
+                                 ProductName = a.ProductName,
+                                 FullName = c.FullName,
+                                 Payement = x.Payement,
+                             }).ToListAsync();
+            return await orderlist;
+        }
 
         //public async Task<Order> GetOrderByEmail(string email)
         //{
@@ -59,7 +83,7 @@ namespace POS_API.Repository
         //    //return await appDb.orders
         //    //    .FirstOrDefaultAsync(e => e. == email);
         //}
-      
+
         public async Task<IEnumerable<Order>> GetOrders()
         {
            
@@ -147,6 +171,22 @@ namespace POS_API.Repository
             return null;
         }
 
-       
+        public async Task<Product> UpdateProduct(Order order)
+        {
+            var result = await appDb.products
+                  .FirstOrDefaultAsync(e => e.ProductID == order.ProductID);
+
+            if (result != null)
+            {
+                result.Quantity = result.Quantity - Int16.Parse(order.Quantity);
+                await appDb.SaveChangesAsync();
+
+                return result;
+            }
+
+            return null;
+        }
+
+
     }
 }
